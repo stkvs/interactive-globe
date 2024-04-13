@@ -37,7 +37,7 @@ const texture1 = textureLoader.load('./earth textures/8k_earth_daymap.jpg')
 const bumpTexture = textureLoader.load('./earth textures/8081_earthbump4k.jpg')
 const cloudTexture = textureLoader.load('./earth textures/fair_clouds_8k.jpg')
 
-const geo = new THREE.IcosahedronGeometry(1.0, 12);
+const geo = new THREE.IcosahedronGeometry(1.0, 64);
 const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     map: texture1,

@@ -62,5 +62,67 @@ function handleMouseUp(event) {
     document.removeEventListener("mouseup", handleMouseUp);
 }
 
-// Add event listener for mouse down event on the box
-box.addEventListener("mousedown", handleMouseDown);
+// Function to handle touch start event
+function handleTouchStart(event) {
+    // Prevent default behavior (e.g., scrolling)
+    event.preventDefault();
+
+    // Get the initial position of the touch
+    initialTouchX = event.touches[0].clientX;
+    initialTouchY = event.touches[0].clientY;
+
+    // Get the initial position of the box
+    var boxRect = box.getBoundingClientRect();
+    initialBoxX = boxRect.left;
+    initialBoxY = boxRect.top;
+
+    // Set isDragging to true
+    isDragging = true;
+
+    // Add event listeners for touch move and touch end events
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
+}
+
+// Function to handle touch move event
+function handleTouchMove(event) {
+    // If the box is being dragged
+    if (isDragging) {
+        // Calculate the new position of the box based on the initial position of the touch and the box
+        var deltaX = event.touches[0].clientX - initialTouchX;
+        var deltaY = event.touches[0].clientY - initialTouchY;
+        var newBoxX = initialBoxX + deltaX;
+        var newBoxY = initialBoxY + deltaY;
+
+        // Ensure the box remains within the viewport boundaries
+        var viewportWidth = window.innerWidth;
+        var viewportHeight = window.innerHeight;
+
+        newBoxX = Math.max(0, Math.min(viewportWidth - box.offsetWidth, newBoxX));
+        newBoxY = Math.max(0, Math.min(viewportHeight - box.offsetHeight, newBoxY));
+
+        // Update the position of the box
+        box.style.left = newBoxX + "px";
+        box.style.top = newBoxY + "px";
+    }
+}
+
+// Function to handle touch end event
+function handleTouchEnd(event) {
+    // Reset isDragging to false
+    isDragging = false;
+
+    // Remove event listeners for touch move and touch end events
+    document.removeEventListener("touchmove", handleTouchMove);
+    document.removeEventListener("touchend", handleTouchEnd);
+}
+
+// Check if the device supports touch events
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
+// Add event listeners based on device support
+if (supportsTouch) {
+    box.addEventListener("touchstart", handleTouchStart);
+} else {
+    box.addEventListener("mousedown", handleMouseDown);
+}

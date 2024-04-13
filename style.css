@@ -4,7 +4,6 @@
 }
 
 html {
-    overflow: hidden;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -12,6 +11,60 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+.preloader {
+    width: 100dvw;
+    height: 100dvh;
+    position: absolute;
+    z-index: 100;
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation: 
+        opacity 500ms forwards 7500ms,
+        dissapear 1ms forwards 7750ms;
+}
+
+.preloader img {
+    max-width: 150px;
+    max-height: 150px;
+    aspect-ratio: 1;
+    animation: breathing 2s infinite alternate;
+}
+
+.preloader p {
+    animation: opacity 1s infinite alternate;
+}
+
+@keyframes dissapear {
+    to {
+        display: none;
+    }
+}
+
+@keyframes breathing {
+    from {
+        scale: 1;
+    }
+    
+    to {
+        scale: 1.1;
+    }
+}
+
+@keyframes opacity {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes zoom-in {
@@ -30,7 +83,8 @@ body {
     position: absolute;
     color: white;
     animation: 1s zoom-in ease-in-out;
-    width: 20vw;
+    max-width: 300px;
+    max-height: 300px;
     background-color: rgba(255, 255, 255, 0.05);
     transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     backdrop-filter: blur(10px);
@@ -39,7 +93,14 @@ body {
     border: solid 4px rgba(255, 255, 255, 0.05);
 }
 
-.text:hover {
+.title {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.text:hover,
+.text:focus {
     scale: 1.1;
     cursor: pointer;
 }
@@ -50,5 +111,18 @@ body {
 }
 
 .text span:hover {
-    color: #57c4e5;
+    color: #57e57b;
+}
+
+.text h1 {
+    font-size: clamp(16px, 16px, 32px);
+}
+
+.title h1 {
+    font-size: clamp(24px, 24px, 32px);
+}
+
+.text p {
+    font-size: clamp(12px, 12px, 18px);
+    margin-top: 16px;
 }
