@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: darkslategray;
     overflow: hidden;
 }
 
@@ -31,14 +32,20 @@ body {
 }
 
 .preloader img {
+    opacity: 0;
     max-width: 150px;
     max-height: 150px;
     aspect-ratio: 1;
-    animation: breathing 2s infinite alternate;
+    animation: 
+        opacity 1s forwards reverse 2s,
+        breathing 2s infinite alternate 2s;
 }
 
 .preloader p {
-    animation: opacity 1s infinite alternate;
+    opacity: 0;
+    animation:
+        opacity 1s forwards reverse 2s,
+        opacity 1s infinite alternate 2s;
 }
 
 @keyframes dissapear {
