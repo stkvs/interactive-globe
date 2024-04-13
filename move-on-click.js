@@ -77,6 +77,9 @@ var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 function handleTouchDown(event) {
     event.preventDefault();
     box.id = "hidden";
+    setInterval(() => {
+        box.style.display = "none";
+    }, 1500);
 }
 
 // Add event listeners based on device support

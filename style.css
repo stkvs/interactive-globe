@@ -27,8 +27,7 @@ body {
     align-items: center;
     color: white;
     animation: 
-        opacity 500ms forwards 7500ms,
-        dissapear 1ms forwards 7750ms;
+        opacity 500ms forwards 7500ms;
 }
 
 .preloader img {
@@ -90,7 +89,7 @@ body {
 }
 
 #hidden {
-    animation: opacity 1s forwards, dissapear 1ms forwards 1.5s
+    animation: opacity 1s forwards
 }
 
 .mobile,
