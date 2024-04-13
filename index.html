@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Interactie Globe</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#2f4f4f">
     <script type="importmap">
 			{
 				"imports": {
@@ -27,9 +28,10 @@
         </h1>
         <p>Made with ThreeJS</p>
       </div>
-      <p>Move this box out of the way and play around with the Earth!!</p>
+      <span class="desktop"><p>Move this box around and play with the sphere</p></span>
+      <span class="mobile"><p>Click on this box to disable it and play around with the Globe.</p></span>
     </div>
-    <script src="move-on-click.js"></script>
+    <script type="module" src="move-on-click.js"></script>
     <script type="module" src="index.js"></script>
   </body>
 </html>

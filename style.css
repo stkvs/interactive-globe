@@ -20,7 +20,7 @@ body {
     height: 100dvh;
     position: absolute;
     z-index: 100;
-    background-color: darkslategray;
+    background-color: #2f4f4f;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,8 +44,8 @@ body {
 .preloader p {
     opacity: 0;
     animation:
-        opacity 1s forwards reverse 2s,
-        opacity 1s infinite alternate 2s;
+        opacity 1s forwards reverse 3s,
+        opacity 1s infinite alternate 3.5s;
 }
 
 @keyframes dissapear {
@@ -88,6 +88,7 @@ body {
 
 .text {
     position: absolute;
+    z-index: 10;
     color: white;
     animation: 1s zoom-in ease-in-out;
     max-width: 300px;
@@ -95,9 +96,19 @@ body {
     background-color: rgba(255, 255, 255, 0.05);
     transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 2rem;
     border: solid 4px rgba(255, 255, 255, 0.05);
+}
+
+#hidden {
+    animation: opacity 1s forwards, dissapear 1ms forwards 1.5s
+}
+
+.mobile,
+.desktop {
+    display: block;
 }
 
 .title {
