@@ -114,6 +114,12 @@ body {
     transition: 0.2s ease-in-out;
 }
 
+@media (max-width: 768px) {
+    .text h1 span {
+        color: #57e57b;
+    }
+}
+
 .text span:hover {
     color: #57e57b;
 }
