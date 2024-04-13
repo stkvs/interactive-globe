@@ -2,6 +2,13 @@
 var box = document.getElementById("mobile-box");
 var mobileText = document.querySelector(".mobile");
 var desktopText = document.querySelector(".desktop");
+var preLoader = document.querySelector(".preloader");
+
+preLoader.style.display = "flex";
+
+setInterval(() => {
+    preLoader.style.display = "none";
+}, 7750);
 
 // Variable to track if the box is being dragged
 var isDragging = false;
